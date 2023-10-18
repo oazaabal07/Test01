@@ -7,15 +7,18 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            //This is the number that will start with
-            string num = "1";
+            string num = "";
+            Console.WriteLine("Enter which number you would like to start with: ");
+            num = Console.ReadLine();
 
-            //I defined here number 10 to give me 10 lines
-            for (int i = 0; i < 10; i++)
+            do
             {
-                Console.WriteLine(num);
-                num = testFunction(num);
-            }
+                while(!Console.KeyAvailable)
+                {
+                    Console.WriteLine(num);
+                    num = testFunction(num);
+                }
+            } while (Console.ReadKey(true).Key != ConsoleKey.Enter);
         }
 
         public static string testFunction(String number)
